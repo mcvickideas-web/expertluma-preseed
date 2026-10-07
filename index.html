@@ -19,390 +19,305 @@
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; background: #0c0b09; overflow: hidden; }
     body { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); }
-    #viewport {
-      height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #stage {
-      width: 1280px;
-      height: 720px;
-      position: relative;
-      flex: 0 0 auto;
-      transform-origin: center center;
-    }
+    #viewport { height: 100dvh; display: flex; align-items: center; justify-content: center; }
+    #stage { width: 1280px; height: 720px; position: relative; flex: 0 0 auto; transform-origin: center center; }
     .slide {
-      display: none;
-      position: absolute;
-      inset: 0;
-      padding: 36px 52px 34px;
-      background: var(--paper);
+      display: none; position: absolute; inset: 0;
+      padding: 32px 48px 28px; background: var(--paper);
       flex-direction: column;
     }
     .slide.on { display: flex; }
     .slide.dark { background: var(--dark); color: #f4f1ea; }
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-    .brand, .num {
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--muted);
-    }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .brand, .num { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
     .dark .brand, .dark .num { color: #a39b8c; }
     h1 {
       font-family: Georgia, "Iowan Old Style", Palatino, serif;
-      font-weight: 560;
-      letter-spacing: -0.03em;
-      line-height: 1.02;
-      margin: 0 0 14px;
-      font-size: 46px;
-      max-width: 18ch;
+      font-weight: 560; letter-spacing: -0.03em; line-height: 1.02;
+      margin: 0 0 12px; font-size: 40px; max-width: 22ch;
     }
-    h1.wide { font-size: 40px; max-width: 22ch; }
-    h1.cover { font-size: 78px; max-width: none; margin-bottom: 8px; }
-    .sub {
-      font-family: Georgia, serif;
-      font-size: 26px;
-      line-height: 1.25;
-      margin: 0 0 18px;
-      color: var(--soft);
-      font-weight: 500;
-      max-width: 22ch;
+    h1.cover { font-size: 64px; max-width: none; margin-bottom: 4px; }
+    h1.q { font-size: 32px; max-width: 28ch; margin: 8px 0 10px; }
+    .eyebrow {
+      margin: 10px 0 0; font-size: 16px; line-height: 1.35; color: var(--soft); max-width: 46rem;
     }
-    p.lead { margin: 0; font-size: 18px; line-height: 1.4; max-width: 46rem; color: #2c2923; }
+    .wedge { margin: 0 0 8px; color: #e4a06a; font-weight: 700; letter-spacing: 0.04em; font-size: 15px; }
+    p.lead { margin: 0; font-size: 17px; line-height: 1.4; max-width: 52rem; color: #2c2923; }
     .dark p.lead { color: var(--soft); }
-    .truth { margin: 16px 0 0; color: #e4a06a; font-size: 18px; font-weight: 700; line-height: 1.35; max-width: 40rem; }
+    .keeps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .keeps div { border-top: 1px solid #3a3530; padding-top: 8px; font-size: 15px; line-height: 1.35; color: var(--soft); }
+    .keeps b { display: block; color: #f4f1ea; font-size: 14px; margin-bottom: 3px; }
     .grow { flex: 1; }
     .foot {
-      display: flex;
-      justify-content: space-between;
-      margin-top: auto;
-      padding-top: 12px;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
+      display: flex; justify-content: space-between; margin-top: auto; padding-top: 10px;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
     }
     .dark .foot { color: #8a8376; }
-    .meta { display: flex; gap: 28px; padding-top: 16px; border-top: 1px solid #3a3530; }
+    .meta { display: flex; gap: 22px; }
     .meta b { display: block; font-family: Georgia, serif; font-size: 26px; font-weight: 560; }
-    .meta span { display: block; margin-top: 3px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #a39b8c; }
-    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .meta span { display: block; margin-top: 2px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #a39b8c; }
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    .g4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
-    .card { background: var(--card); border: 1px solid var(--line); padding: 14px 16px 12px; }
-    .card .k { margin: 0 0 6px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); font-weight: 750; }
-    .card h2 { font-family: Georgia, serif; font-size: 22px; margin: 0 0 8px; font-weight: 560; }
+    .card { background: var(--card); border: 1px solid var(--line); padding: 14px 14px 12px; }
+    .card .k { margin: 0 0 6px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); font-weight: 750; }
+    .card h2 { font-family: Georgia, serif; font-size: 22px; margin: 0 0 8px; font-weight: 560; letter-spacing: -0.02em; }
     .card p, .card li { margin: 0; font-size: 14.5px; line-height: 1.38; color: #2c2923; }
-    .card ul { margin: 0; padding-left: 16px; }
-    .card li { margin: 0 0 5px; }
-    .do { margin-top: 10px; background: var(--ink); color: #f4f1ea; padding: 9px 10px; font-size: 13.5px; line-height: 1.35; }
-    .bar { margin-top: 12px; background: var(--ink); color: #f4f1ea; padding: 12px 14px; font-size: 15.5px; line-height: 1.35; }
-    .chain { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 12px; }
-    .chain div { background: var(--card); border: 1px solid var(--line); padding: 12px 14px; }
-    .chain div + div { border-left: 0; }
-    .chain b { display: block; font-size: 15px; margin-bottom: 4px; }
-    .chain span { display: block; font-size: 13px; line-height: 1.35; color: #3a3530; }
+    .card ul { margin: 8px 0 0; padding-left: 16px; }
+    .card li { margin: 0 0 4px; }
+    .bar { margin-top: 12px; background: var(--ink); color: #f4f1ea; padding: 12px 14px; font-size: 15.5px; line-height: 1.4; }
+    .flow { display: grid; grid-template-columns: 200px 1fr 280px; gap: 18px; align-items: center; }
+    .src, .out {
+      background: var(--card); border: 1px solid var(--line); padding: 16px;
+      text-align: center; font-family: Georgia, serif; font-size: 20px; line-height: 1.25;
+    }
+    .out { border: 2px solid var(--ink); }
+    .os {
+      background: var(--ink); color: #f4f1ea; padding: 16px 18px 14px;
+    }
+    .os b { display: block; letter-spacing: 0.16em; font-size: 12px; margin-bottom: 10px; }
+    .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .steps span {
+      display: block; border: 1px solid #3a3530; padding: 8px 8px; font-size: 13px; text-align: center; letter-spacing: 0.06em;
+    }
+    .arrow { text-align: center; color: var(--muted); font-size: 18px; margin: 6px 0; }
+    .path { font-size: 13px; letter-spacing: 0.04em; color: #3a3530; margin-top: 8px; }
+    .price { display: flex; gap: 18px; align-items: baseline; margin: 8px 0 10px; }
+    .price b { font-family: Georgia, serif; font-size: 36px; font-weight: 560; }
+    .price span { color: var(--muted); font-size: 14px; }
+    .not { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    .not span { border: 1px solid var(--line); background: var(--card); padding: 6px 8px; font-size: 13px; }
     table { width: 100%; border-collapse: collapse; }
     th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); font-size: 14.5px; vertical-align: top; }
-    th { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
     td.r { text-align: right; font-weight: 750; white-space: nowrap; }
-    .miss { color: var(--copper); font-weight: 750; }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
-    .stat { background: var(--card); border: 1px solid var(--line); padding: 10px 14px; }
-    .stat b { display: block; font-family: Georgia, serif; font-size: 28px; font-weight: 560; }
-    .stat span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-    .doc { background: var(--card); border: 1px solid var(--line); padding: 16px 18px 8px; }
-    .dochead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .dochead span { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 750; }
-    .stamp { border: 2px solid var(--copper); color: var(--copper); font-size: 12px; font-weight: 800; letter-spacing: 0.14em; padding: 5px 8px; }
-    .doc h2 { font-family: Georgia, serif; font-size: 26px; margin: 0 0 6px; }
-    .row { display: grid; grid-template-columns: 150px 1fr; gap: 8px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 15px; }
-    .split { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 22px; align-items: start; }
-    .aside p { margin: 0 0 12px; font-size: 16px; line-height: 1.4; }
     .gates { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     .gate { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--ink); padding: 12px; }
     .gate b { display: block; font-size: 13px; margin-bottom: 6px; }
     .gate span { display: block; font-size: 13.5px; line-height: 1.35; color: #2c2923; }
     .contact { font-size: 18px; line-height: 1.5; }
     .contact a { color: inherit; }
-    .nav {
-      position: fixed; left: 0; right: 0; bottom: 14px;
-      display: flex; justify-content: center; gap: 7px; z-index: 3;
-    }
-    .nav button {
-      width: 7px; height: 7px; border: 0; border-radius: 99px; padding: 0;
-      background: #6a6458; cursor: pointer;
-    }
+    .nav { position: fixed; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 7px; z-index: 3; }
+    .nav button { width: 7px; height: 7px; border: 0; border-radius: 99px; padding: 0; background: #6a6458; cursor: pointer; }
     .nav button.on { width: 20px; background: #f4f1ea; }
-    .hit { position: fixed; top: 0; bottom: 40px; width: 18%; z-index: 2; cursor: pointer; }
+    .hit { position: fixed; top: 0; bottom: 40px; width: 16%; z-index: 2; cursor: pointer; }
     .hit.r { right: 0; }
-    @media print {
-      html, body { overflow: visible; background: white; height: auto; }
-      #viewport { display: block; height: auto; }
-      #stage { transform: none !important; width: auto; height: auto; }
-      .slide { display: flex !important; position: relative; width: 13.333in; height: 7.5in; page-break-after: always; break-after: page; }
-      .nav, .hit { display: none; }
-    }
   </style>
 </head>
 <body>
   <div id="viewport"><div id="stage">
 
     <section class="slide dark on">
-      <div class="top"><span class="brand">Expertluma · Pre-seed</span><span class="num">01</span></div>
+      <div class="top"><span class="brand">Pre-seed</span><span class="num">01</span></div>
+      <p class="wedge">From AI evidence to authorization</p>
       <h1 class="cover">Expertluma</h1>
-      <p class="sub">The operating system for producing reliable AI.</p>
-      <p class="lead">The customer brings the model. We keep the record of what it has shown, what a named person has allowed, and whether that permission still stands.</p>
-      <p class="truth">The plant is built. It can say not ready. Nobody has paid.</p>
+      <p class="eyebrow">The operating system for enterprise AI production.</p>
+      <p class="eyebrow">Before an enterprise puts an AI into a real workflow, someone has to answer one question.</p>
+      <h1 class="q">Can we responsibly authorize this AI for this job?</h1>
+      <p class="lead">Expertluma runs the production, evidence, validation, and decision process around that answer.</p>
+      <div class="keeps">
+        <div><b>The customer keeps the AI</b>They train it. We do not.</div>
+        <div><b>The customer keeps the decision</b>A named person authorizes, or does not.</div>
+        <div><b>Expertluma keeps the system</b>The production and the evidence chain behind that answer.</div>
+      </div>
       <div class="grow"></div>
       <div class="meta">
-        <div><b>$2.5M</b><span>Raise · 18 months</span></div>
-        <div><b>$10–15M</b><span>Post-money SAFE cap</span></div>
-        <div><b>Zero</b><span>Customers · revenue</span></div>
-        <div><b>Vincent Rotich</b><span>Founder · Nairobi</span></div>
+        <div><b>Built</b><span>Production system</span></div>
+        <div><b>0</b><span>Customers</span></div>
+        <div><b>$0</b><span>Revenue</span></div>
+        <div><b>$2.5M</b><span>Pre-seed · 18 months</span></div>
       </div>
-      <div class="foot"><span>Confidential</span><span>mc.vickideas@gmail.com</span></div>
+      <div class="foot"><span>Vincent Rotich · Nairobi</span><span>01 / 09</span></div>
     </section>
 
     <section class="slide">
-      <div class="top"><span class="brand">Problem</span><span class="num">02</span></div>
-      <h1 class="wide">A high score is how the AI gets shipped.</h1>
-      <p class="lead">Companies already have a model, an agent, or a vendor product. The average looks fine, so the meeting says go live. The miss that matters never owns the decision.</p>
-      <div class="g3" style="margin-top:16px">
+      <div class="top"><span class="brand">The wedge</span><span class="num">02</span></div>
+      <h1>Enterprise AI has three problems before it can be authorized.</h1>
+      <div class="g3" style="margin-top:8px">
         <div class="card">
-          <p class="k">01 · The work</p>
-          <h2>Judgment</h2>
-          <p>Someone must review the cases that must not fail. That work sits in a labeling tool, a spreadsheet, and an inbox.</p>
-          <div class="do">We produce the judgment and accept it. Submitting is not accepting.</div>
+          <p class="k">01</p>
+          <h2>The difficult cases</h2>
+          <p>The average score looks good. The failure that matters is buried in the average. Someone still has to produce, inspect, and accept the evidence behind the cases that must not fail.</p>
         </div>
         <div class="card">
-          <p class="k">02 · The test</p>
+          <p class="k">02</p>
           <h2>This version</h2>
-          <p>Scores average the miss away. A rename is treated as an improvement. Most cases passed, so the failure never stops the program.</p>
-          <div class="do">We measure this version for this use. A required miss can block while the score stays high.</div>
+          <p>A model changes. A prompt changes. A tool changes. The name stays the same. Yesterday’s result is used to justify today’s system. Nobody has shown that this exact version improved.</p>
         </div>
         <div class="card">
-          <p class="k">03 · The permission</p>
-          <h2>A name</h2>
-          <p>Evidence, evaluation, and approval live apart. “Looks good enough” has no owner. If it fails in the world, a person still owns it.</p>
-          <div class="do">A named person at their company decides. Use it, send it back, or not ready.</div>
+          <p class="k">03</p>
+          <h2>The authorization</h2>
+          <p>Evaluation says 98%. Governance says compliant. The vendor says production-ready. Someone still has to answer: are we willing to authorize this AI for this job?</p>
         </div>
       </div>
-      <div class="foot"><span>Expertluma</span><span>02 / 12</span></div>
+      <div class="bar">Companies already have the model. They do not need another one. The gap is between “the AI works” and “we will authorize it.”</div>
+      <div class="foot"><span>Expertluma</span><span>02 / 09</span></div>
     </section>
 
     <section class="slide">
-      <div class="top"><span class="brand">Solution</span><span class="num">03</span></div>
-      <h1 class="wide">They keep the model. We keep the record.</h1>
-      <div class="chain">
-        <div><b>1 · Produce</b><span>Eligible people do the work the job requires, including the cases that must not fail.</span></div>
-        <div><b>2 · Inspect</b><span>A second person accepts or returns it. Submission is not acceptance.</span></div>
-        <div><b>3 · Measure</b><span>This version, for this use. A required miss can block. A rename is not an improvement.</span></div>
-        <div><b>4 · Decide</b><span>Their named person: use it, send it back, or not ready. We do not grant permission.</span></div>
-      </div>
-      <div class="g2">
-        <div class="card">
-          <h2>What they keep</h2>
-          <p>The model, the cloud, the vendors, and the people. They train in their environment. There is no Train button here.</p>
+      <div class="top"><span class="brand">The company</span><span class="num">03</span></div>
+      <h1>That gap is the company.</h1>
+      <div class="flow">
+        <div>
+          <div class="src">The customer’s AI</div>
+          <div class="arrow">They keep the model, the cloud, the vendors, and the people.</div>
         </div>
-        <div class="card">
-          <h2>What we keep</h2>
-          <p>The file that says this version may do this job, who reviewed it, who accepted the review, and whether the permission still stands.</p>
+        <div class="os">
+          <b>Expertluma</b>
+          <div class="steps">
+            <span>Produce</span><span>Inspect</span><span>Validate</span>
+            <span>Return</span><span>Certify</span><span>Decide</span>
+          </div>
+          <p class="path" style="color:#d9d2c4">The production system and the evidence chain. Not a second model.</p>
         </div>
+        <div class="out">Authorized for this job, this version, these conditions — or not ready</div>
       </div>
-      <div class="foot"><span>Expertluma</span><span>03 / 12</span></div>
+      <div class="bar">The customer does not replace what they already bought. Expertluma operates the production system around it. The customer makes the authorization decision.</div>
+      <div class="foot"><span>Expertluma</span><span>03 / 09</span></div>
     </section>
 
     <section class="slide">
-      <div class="top"><span class="brand">The first sale</span><span class="num">04</span></div>
-      <h1 class="wide">One AI. One use. One decision.</h1>
-      <table>
-        <thead><tr><th></th><th>Today</th><th>With Expertluma</th></tr></thead>
-        <tbody>
-          <tr><td><b>The AI</b></td><td>A claims model recommends pay, investigate, or escalate. They trained it.</td><td>Same model. Same company. We do not retrain it.</td></tr>
-          <tr><td><b>The score</b></td><td>Most claims look right, so the slide says ship it.</td><td>On the class that must be escalated, a miss can block the program.</td></tr>
-          <tr><td><b>The work</b></td><td>Whoever is free reviews a sample.</td><td>Named people produce the judgment. Someone else accepts it.</td></tr>
-          <tr><td><b>The decision</b></td><td>“Looks good enough.” No owner.</td><td>A named person: use it, send it back, or not ready.</td></tr>
-          <tr><td><b>The price</b></td><td>A labeling contract, a dashboard, or a free pilot.</td><td>$25–75K for the decision the score could not make.</td></tr>
-        </tbody>
-      </table>
-      <div class="bar">Same record for a clinical note, an internal agent, or a model a lab wants to call improved. One file. Not eight products. This scene has not been sold.</div>
-      <div class="foot"><span>Expertluma</span><span>04 / 12</span></div>
-    </section>
-
-    <section class="slide">
-      <div class="top"><span class="brand">What you can walk</span><span class="num">05</span></div>
-      <h1 class="wide">Not ready is a finished outcome.</h1>
-      <div class="split">
-        <div class="doc">
-          <div class="dochead"><span>Demonstration · not a customer</span><span class="stamp">NOT READY</span></div>
-          <h2>Payment-exception agent</h2>
-          <div class="row"><b>The work</b><span>The corpus is not released.</span></div>
-          <div class="row"><b>The test</b><span>No evaluation is on the record.</span></div>
-          <div class="row"><b>The decision</b><span>Authorization is not established.</span></div>
-          <div class="row"><b>Approve</b><span>Locked.</span></div>
-          <div class="row"><b>Paid</b><span>$0.</span></div>
-        </div>
-        <div class="aside">
-          <p>If this product could always make an AI look ready, the meeting would be a tour.</p>
-          <p>I will walk the refusal with you. The review that is not complete. The permission that is not established. The button that stays locked.</p>
-          <p>That refusal is the company. Painting it green to raise money would be the failure.</p>
-        </div>
-      </div>
-      <div class="foot"><span>Expertluma</span><span>05 / 12</span></div>
-    </section>
-
-    <section class="slide">
-      <div class="top"><span class="brand">Business model</span><span class="num">06</span></div>
-      <h1 class="wide">Sell the decision. The file is why they return.</h1>
-      <div class="g3" style="margin-bottom:12px">
-        <div class="stat"><b>$25–75K</b><span>First program</span></div>
-        <div class="stat"><b>2–4</b><span>Paying programs in 18 months</span></div>
-        <div class="stat"><b>40 / 60</b><span>Deposit, then final on delivery</span></div>
-      </div>
-      <div class="g2">
-        <div class="card">
-          <h2>What the first invoice is</h2>
-          <p>One AI. One intended use. Judgments, a test of this version, and a named decision, including not ready. It is not a platform license and not a seat sale. Two to four of these prove a stranger will pay. They do not justify the cap.</p>
-        </div>
-        <div class="card">
-          <h2>What the company is</h2>
-          <p>They change the model in their environment and bring that version back. Last quarter’s yes does not cover it. They do not rebuy a labeling tool, an evaluation dashboard, and a committee. Leaving scatters the permission, and the name is exposed again.</p>
-        </div>
-      </div>
-      <div class="foot"><span>Expertluma</span><span>06 / 12</span></div>
-    </section>
-
-    <section class="slide">
-      <div class="top"><span class="brand">Who buys</span><span class="num">07</span></div>
-      <h1 class="wide">Start where a miss has a person’s name on it.</h1>
-      <div class="g4">
-        <div class="card"><p class="k">Lab</p><h2>A version</h2><p>They want to call a model improved. The same version is not an improvement.</p></div>
-        <div class="card"><p class="k">Product</p><h2>Already in use</h2><p>An agent or copilot is in limited use. Reliability or a safety miss is blocking a wider release.</p></div>
-        <div class="card"><p class="k">Enterprise</p><h2>One agent</h2><p>One internal job. A head of AI who must authorize it, or say not yet.</p></div>
-        <div class="card"><p class="k">Consequence</p><h2>One miss</h2><p>Claims, clinical, financial. A targeted failure can block even when the score is high.</p></div>
-      </div>
-      <div class="bar">This round is 2–4 programs, not a category capture. Healthcare is where the miss is obvious. It is not the identity of the company. The US commercial seat owns the first twenty conversations. None are booked.</div>
-      <div class="foot"><span>Expertluma</span><span>07 / 12</span></div>
-    </section>
-
-    <section class="slide">
-      <div class="top"><span class="brand">Where we sit</span><span class="num">08</span></div>
-      <h1 class="wide">They will keep their tools. We own the join.</h1>
-      <div class="g4">
-        <div class="card"><h2>Labeling</h2><p>Produces work. It does not accept it, test the model, or authorize use.</p></div>
-        <div class="card"><h2>Evaluation</h2><p>Produces a score. A high score does not clear a required miss.</p></div>
-        <div class="card"><h2>Governance</h2><p>Inventories policies and models. It does not run the production that the decision rests on.</p></div>
-        <div class="card"><h2>The model vendor</h2><p>Trains and hosts. They do not own the customer’s permission to use this version.</p></div>
-      </div>
-      <div class="bar">The largest competitor is the status quo: a vendor slide, a spreadsheet, and a committee. Expertluma is the file between those tools and a name.</div>
-      <div class="foot"><span>Expertluma</span><span>08 / 12</span></div>
-    </section>
-
-    <section class="slide">
-      <div class="top"><span class="brand">Status</span><span class="num">09</span></div>
-      <h1 class="wide">You can walk the plant. You cannot call it traction.</h1>
-      <div class="g2">
-        <div class="card">
-          <h2>Built</h2>
-          <ul>
-            <li>A program produces work against a defined job.</li>
-            <li>Submission and acceptance are separate.</li>
-            <li>This version can be measured. Evidence is kept.</li>
-            <li>A required failure can block the outcome.</li>
-            <li>The same version is refused as an improvement.</li>
-            <li>Money follows accepted work. No price, nothing owed.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Not traction</h2>
-          <ul>
-            <li class="miss">Zero customers. Zero revenue.</li>
-            <li>The demonstrations are ours. No stranger has paid.</li>
-            <li>No SOC 2. No live patient data.</li>
-            <li>A buyer cannot yet enter a hosted room alone.</li>
-            <li>UK company registered. Bank account not open. Stripe Atlas is the plan.</li>
-            <li>No commercial meetings are booked.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="bar">Technical risk is largely taken. This round is commercial: will a company put a real AI through the system and pay for the decision?</div>
-      <div class="foot"><span>Expertluma</span><span>09 / 12</span></div>
-    </section>
-
-    <section class="slide">
-      <div class="top"><span class="brand">Team</span><span class="num">10</span></div>
-      <h1 class="wide">I built it. The commercial seat is open.</h1>
+      <div class="top"><span class="brand">How it works</span><span class="num">04</span></div>
+      <h1>Three questions. One production system.</h1>
       <div class="g3">
+        <div class="card">
+          <p class="k">Train</p>
+          <h2>Was the material produced?</h2>
+          <p>Did we produce the evidence and the work this job requires? The customer trains the model in their environment. We do not.</p>
+          <p class="path">Produce → Inspect → Accept → Release</p>
+        </div>
+        <div class="card">
+          <p class="k">Validate</p>
+          <h2>Did this version hold?</h2>
+          <p>Did this exact AI demonstrate the required behavior, including the cases that must not fail? A higher score does not clear a required miss. A rename is not an improvement.</p>
+          <p class="path">Examine → Measure → Critical cases → Evidence</p>
+        </div>
+        <div class="card">
+          <p class="k">Certify</p>
+          <h2>Is it enough to authorize?</h2>
+          <p>Is the evidence sufficient to authorize this AI for this job, under these conditions? If it is not, the system says not ready.</p>
+          <p class="path">Evidence → Conditions → Decision</p>
+        </div>
+      </div>
+      <div class="bar">The customer makes the authorization decision. We do not certify an AI on our own authority. Painting a refusal green to raise money would be the failure.</div>
+      <div class="foot"><span>Expertluma</span><span>04 / 09</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><span class="brand">The first sale</span><span class="num">05</span></div>
+      <h1>One AI. One intended use. One decision.</h1>
+      <p class="lead">A bounded production program. We take one AI the customer already has and operate the production required to answer:</p>
+      <div class="g2" style="margin-top:12px">
+        <div class="card">
+          <h2>What they receive</h2>
+          <ul>
+            <li>What evidence exists for this job.</li>
+            <li>What this exact version actually did.</li>
+            <li>Where it failed, and which failures matter.</li>
+            <li>Who reviewed them, and what was accepted.</li>
+            <li>What conditions apply.</li>
+            <li>Whether they can responsibly authorize it.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>What they are buying</h2>
+          <div class="price"><b>$25–75K</b><span>Initial program</span></div>
+          <p>An evidence-backed production and authorization record. Deposit before the work. Final payment when the decision is delivered.</p>
+          <div class="not">
+            <span>Not seats</span><span>Not labeling hours</span><span>Not a dashboard</span><span>Not consulting</span>
+          </div>
+          <p style="margin-top:12px">Two to four of these in eighteen months is the proof a stranger will pay, and then come back because the file is already there.</p>
+        </div>
+      </div>
+      <div class="foot"><span>This scene has not been sold.</span><span>05 / 09</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><span class="brand">Where we are</span><span class="num">06</span></div>
+      <h1>The technical question is largely answered. The commercial question is not.</h1>
+      <div class="g2">
+        <div class="card">
+          <p class="k">Built</p>
+          <ul>
+            <li>The production spine exists.</li>
+            <li>Submission and acceptance are separate.</li>
+            <li>A version has an identity. A rename is not an improvement.</li>
+            <li>A required failure can block.</li>
+            <li>Evidence is kept with the decision.</li>
+            <li>The system can refuse to call an AI ready.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="k">Not proven</p>
+          <ul>
+            <li>External customers: 0</li>
+            <li>Revenue: $0</li>
+            <li>Paid production programs: 0</li>
+            <li>Commercial conversations booked: 0</li>
+            <li>The proof so far is internal.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bar">That is what this round is for. A stranger brings a real AI. They pay us to run the production. The system produces evidence. They make the decision. Then they do it again.</div>
+      <div class="foot"><span>Expertluma</span><span>06 / 09</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><span class="brand">The founder</span><span class="num">07</span></div>
+      <h1>The product is built. The commercial seat is the round.</h1>
+      <div class="g2">
         <div class="card">
           <p class="k">Founder</p>
           <h2>Vincent Rotich</h2>
-          <p>I built the plant from Nairobi. I am not an exited founder. The way to judge me is the walk: a case I refuse to call ready. I will not invent a pipeline.</p>
+          <p>Technical founder. I built the platform from Nairobi. The gap in this company is commercial, not technical. This round is designed to add the commercial capability I do not have.</p>
         </div>
         <div class="card">
-          <p class="k">Open · month 0</p>
-          <h2>US commercial</h2>
-          <p>A co-founder if the right person is in reach. Otherwise the first hire. Their job is twenty enterprise conversations in ninety days. None of those meetings exist today.</p>
-        </div>
-        <div class="card">
-          <p class="k">This raise also seats</p>
-          <h2>The company</h2>
-          <p>Someone to keep the hosted plant up. Someone to run the first paid program. Fractional counsel and security. Not a sales army, and not more product.</p>
+          <p class="k">The commercial seat</p>
+          <h2>US, from month one</h2>
+          <p>A commercial co-founder if the right person is in reach. Otherwise the first hire. The mission is twenty serious enterprise conversations, the first paid production programs, and a second one after that.</p>
         </div>
       </div>
-      <div class="foot"><span>Expertluma</span><span>10 / 12</span></div>
+      <div class="bar">Judge the product by walking a case the system refuses to call ready. Judge the round by whether that walk can be sold.</div>
+      <div class="foot"><span>Expertluma</span><span>07 / 09</span></div>
     </section>
 
     <section class="slide">
-      <div class="top"><span class="brand">The raise</span><span class="num">11</span></div>
-      <h1 class="wide">$2.5M puts a stranger in the chair.</h1>
-      <div class="stats">
-        <div class="stat"><b>$2.5M</b><span>Pre-seed · SAFE</span></div>
-        <div class="stat"><b>18 months</b><span>Runway</span></div>
-        <div class="stat"><b>$10–15M</b><span>Post cap, on zero revenue</span></div>
-      </div>
-      <div class="g2" style="gap:18px; align-items:start">
-        <table>
-          <thead><tr><th>Use</th><th></th></tr></thead>
-          <tbody>
-            <tr><td>People</td><td class="r">$1.15M</td></tr>
-            <tr><td>Enterprise wrapping</td><td class="r">$350K</td></tr>
-            <tr><td>A room a buyer can enter</td><td class="r">$250K</td></tr>
-            <tr><td>First paid delivery</td><td class="r">$300K</td></tr>
-            <tr><td>US conversations</td><td class="r">$250K</td></tr>
-            <tr><td>Reserve, only if a customer forces it</td><td class="r">$200K</td></tr>
-          </tbody>
-        </table>
-        <div class="gates" style="grid-template-columns:1fr 1fr">
-          <div class="gate"><b>0–3 months</b><span>Hosted room. Commercial seat. Twenty named conversations.</span></div>
-          <div class="gate"><b>3–6 months</b><span>One agreement. A deposit. Their AI enters the record.</span></div>
-          <div class="gate"><b>6–12 months</b><span>A finished decision, including not ready. Then a payment.</span></div>
-          <div class="gate"><b>12–18 months</b><span>Two to four paying programs. Seed numbers from those facts.</span></div>
+      <div class="top"><span class="brand">The raise</span><span class="num">08</span></div>
+      <h1>$2.5M to turn technical proof into external proof.</h1>
+      <p class="lead">We are not raising because the market is already proven. We are raising to prove it. Post-money SAFE. Cap $10–15M, on zero revenue. Eighteen months.</p>
+      <div class="g3" style="margin:12px 0">
+        <div class="card">
+          <p class="k">Commercial</p>
+          <p>US commercial lead. Enterprise conversations. Working capital for the first paid programs.</p>
+        </div>
+        <div class="card">
+          <p class="k">Production</p>
+          <p>A hosted room a buyer can enter. Enterprise wrapping. Delivery of the first program.</p>
+        </div>
+        <div class="card">
+          <p class="k">Company</p>
+          <p>The founder, the person who keeps the plant up, counsel and security. Reserve only if a customer forces a change.</p>
         </div>
       </div>
-      <div class="foot"><span>Fewer than two payments is a miss. We cut burn. We do not invent a greener story.</span><span>11 / 12</span></div>
+      <div class="gates">
+        <div class="gate"><b>0–3 months</b><span>Commercial seat. Hosted room. The first serious conversations.</span></div>
+        <div class="gate"><b>3–6 months</b><span>First agreement. A deposit.</span></div>
+        <div class="gate"><b>6–12 months</b><span>First completed paid production program.</span></div>
+        <div class="gate"><b>12–18 months</b><span>Two to four paying programs. Evidence they repeat.</span></div>
+      </div>
+      <div class="foot"><span>People $1.15M · Wrapping $350K · Hosted $250K · Delivery $300K · Conversations $250K · Reserve $200K</span><span>08 / 09</span></div>
     </section>
 
     <section class="slide dark">
-      <div class="top"><span class="brand">The ask</span><span class="num">12</span></div>
-      <h1 class="wide">If the refusal is dull, do not write the cheque.</h1>
-      <p class="lead">Thirty minutes. I walk one case: the review that is not accepted, the permission that is not established, and a decision that stays not ready. If that is the company, I am asking you to be early.</p>
-      <div class="g3" style="margin-top:22px">
-        <div class="card" style="background:#1c1a17;border-color:#3a3530;color:#f4f1ea"><h2 style="color:#f4f1ea">The meeting</h2><p style="color:#d9d2c4">The walk. Including the no.</p></div>
-        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">The cheque</h2><p style="color:#d9d2c4">The account, the US seat, the first conversations. $2.5M into the round.</p></div>
-        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">The proof</h2><p style="color:#d9d2c4">Their AI. The same decision. They pay. Then again.</p></div>
+      <div class="top"><span class="brand">The ask</span><span class="num">09</span></div>
+      <h1>We do not need you to believe the story. We need you to test it.</h1>
+      <p class="lead">Bring one AI. Give us one job. Give us the cases that matter. Let the system tell you whether the evidence is sufficient to authorize it.</p>
+      <div class="g3" style="margin-top:18px">
+        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">The test</h2><p style="color:#d9d2c4">One AI. One job. The cases that must not fail. Including a refusal.</p></div>
+        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">The company</h2><p style="color:#d9d2c4">If that becomes a paid program, and then a second one, this is a company.</p></div>
+        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">The round</h2><p style="color:#d9d2c4">$2.5M pre-seed SAFE. Eighteen months. That is what the money is for.</p></div>
       </div>
       <div class="grow"></div>
       <p class="contact">Vincent Rotich · Nairobi<br><a href="mailto:mc.vickideas@gmail.com">mc.vickideas@gmail.com</a> · <a href="https://www.expertluma.com">expertluma.com</a> · <a href="https://www.linkedin.com/in/rotich-vincent-4a8910a3">LinkedIn</a></p>
-      <div class="foot"><span>Expertluma · Pre-seed</span><span>12 / 12</span></div>
+      <div class="foot"><span>From AI evidence to authorization</span><span>09 / 09</span></div>
     </section>
 
   </div></div>
@@ -422,8 +337,7 @@
       dots.appendChild(b);
     });
     function fit() {
-      const s = Math.min(innerWidth / 1280, innerHeight / 720);
-      stage.style.transform = 'scale(' + s + ')';
+      stage.style.transform = 'scale(' + Math.min(innerWidth / 1280, innerHeight / 720) + ')';
     }
     function show(n) {
       i = Math.max(0, Math.min(slides.length - 1, n));
@@ -435,8 +349,6 @@
     addEventListener('keydown', (e) => {
       if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
       if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
-      if (e.key === 'Home') show(0);
-      if (e.key === 'End') show(slides.length - 1);
     });
     addEventListener('resize', fit);
     fit();
