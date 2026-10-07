@@ -95,6 +95,22 @@
     .gate span { display: block; font-size: 13.5px; line-height: 1.35; color: #2c2923; }
     .contact { font-size: 18px; line-height: 1.5; }
     .contact a { color: inherit; }
+    .pic { display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr 22px 1fr; align-items: stretch; margin-top: 10px; }
+    .box { background: var(--card); border: 1px solid var(--line); padding: 12px 12px 14px; display: flex; flex-direction: column; }
+    .box .n { margin: 0 0 6px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); font-weight: 750; }
+    .box h2 { font-family: Georgia, serif; font-size: 20px; margin: 0 0 8px; font-weight: 560; letter-spacing: -0.02em; line-height: 1.15; }
+    .box p { margin: 0; font-size: 14px; line-height: 1.38; color: #2c2923; }
+    .box .ex { margin-top: auto; padding-top: 10px; font-size: 13.5px; line-height: 1.35; color: #3a342c; }
+    .box .ex b { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper); margin-bottom: 3px; }
+    .chev { display: flex; align-items: center; justify-content: center; color: var(--copper); font-size: 22px; font-weight: 700; }
+    .mess { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 8px; }
+    .mess .box { border-style: dashed; min-height: 250px; }
+    .case {
+      display: flex; gap: 16px; align-items: center;
+      background: var(--ink); color: #f4f1ea; padding: 10px 14px; margin-top: 4px;
+    }
+    .case b { font-family: Georgia, serif; font-weight: 560; font-size: 18px; }
+    .case span { color: #d9d2c4; font-size: 14.5px; line-height: 1.35; }
     .nav { position: fixed; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 7px; z-index: 3; }
     .nav button { width: 7px; height: 7px; border: 0; border-radius: 99px; padding: 0; background: #6a6458; cursor: pointer; }
     .nav button.on { width: 20px; background: #f4f1ea; }
@@ -128,73 +144,108 @@
     </section>
 
     <section class="slide">
-      <div class="top"><span class="brand">Why they stall</span><span class="num">02</span></div>
-      <h1>A good demo is not a sign-off.</h1>
-      <div class="g3" style="margin-top:8px">
-        <div class="card">
-          <p class="k">01</p>
-          <h2>The score hides the miss</h2>
-          <p>Most cases look fine, so the slide says ship it. The case that would hurt the business is lost in the average. Someone has to check those cases. Someone else has to accept the check.</p>
+      <div class="top"><span class="brand">The problem</span><span class="num">02</span></div>
+      <h1>The AI looks ready. Nobody can prove it.</h1>
+      <div class="case">
+        <b>For example</b>
+        <span>Their AI reads a payment and says pay it, hold it, or send it to a person. The demo says 98%. One payment that should have been held is inside that 98%.</span>
+      </div>
+      <div class="mess">
+        <div class="box">
+          <p class="n">Piece 1 · somewhere else</p>
+          <h2>The labels</h2>
+          <p>Someone, often a labeling vendor, marked what the right answer was. Those marks sit in a spreadsheet. Nobody recorded that a second person accepted them.</p>
+          <p class="ex"><b>On this payment</b>“Hold it” may be in the file. It does not count until someone accepts it.</p>
         </div>
-        <div class="card">
-          <p class="k">02</p>
-          <h2>A new version borrows an old yes</h2>
-          <p>The model changes. The prompt changes. The name stays the same. Last quarter’s test is used to justify this quarter’s system. Nobody has shown that this version is actually better.</p>
+        <div class="box">
+          <p class="n">Piece 2 · last quarter</p>
+          <h2>The test</h2>
+          <p>The score is a slide. The model has changed since that slide. The name of the AI has not. Last quarter’s yes is being used on this version.</p>
+          <p class="ex"><b>On this payment</b>This version was never run on the payment that should have been held.</p>
         </div>
-        <div class="card">
-          <p class="k">03</p>
-          <h2>Nobody owns the yes</h2>
-          <p>The score says 98%. The policy says compliant. The vendor says ready. A person at the company still has to put their name on it. Today that yes lives in a slide, a spreadsheet, and a meeting.</p>
+        <div class="box">
+          <p class="n">Piece 3 · a meeting</p>
+          <h2>The signature</h2>
+          <p>A person at the company is asked to say yes. The proof is a vendor email, a policy, and whoever remembers the meeting.</p>
+          <p class="ex"><b>On this payment</b>If it is paid by mistake, there is no one file that shows who checked it.</p>
         </div>
       </div>
-      <div class="bar">They do not need another model. They need a way to decide whether this one is allowed to do this job.</div>
-      <div class="foot"><span>Expertluma</span><span>02 / 09</span></div>
+      <div class="bar">They do not need another model. They need one place that holds the examples, the test of this version, and the name on the answer.</div>
+      <div class="foot"><span>The same mess exists for a drafted clinical note, a customer refund, or a public-service decision.</span><span>02 / 09</span></div>
     </section>
 
     <section class="slide">
-      <div class="top"><span class="brand">What we are</span><span class="num">03</span></div>
-      <h1>We sit between the AI and the signature.</h1>
-      <div class="flow">
-        <div>
-          <div class="src">Their AI</div>
-          <div class="arrow">They keep the model, the cloud, the vendors, and the people.</div>
+      <div class="top"><span class="brand">The solution</span><span class="num">03</span></div>
+      <h1>One project. The whole job. One answer.</h1>
+      <p class="lead">They bring the AI they already have. We do not build them a new one, and we do not train it. They train it in their own systems. We run the work that lets a person at their company sign, send it back, or say not yet.</p>
+      <div class="pic">
+        <div class="box">
+          <p class="n">1 · Prepare</p>
+          <h2>Get the examples ready</h2>
+          <p>People look at real cases and mark the right answer. That work is labeling, and other data preparation like it.</p>
+          <p class="ex"><b>On the payment</b>A person labels it: hold it.</p>
         </div>
-        <div class="os">
-          <b>Expertluma</b>
-          <div class="steps">
-            <span>Check the work</span><span>Test this version</span><span>Keep the proof</span>
-            <span>Send it back</span><span>Write the answer</span><span>They sign</span>
-          </div>
-          <p class="path" style="color:#d9d2c4">We do not build them another model.</p>
+        <div class="chev">→</div>
+        <div class="box">
+          <p class="n">2 · Accept</p>
+          <h2>A second person checks</h2>
+          <p>Handing the label in is not approval. A different person accepts it before it counts.</p>
+          <p class="ex"><b>On the payment</b>“Hold it” is accepted. Now it can be used.</p>
         </div>
-        <div class="out">Yes for this job and this version — or not yet</div>
+        <div class="chev">→</div>
+        <div class="box">
+          <p class="n">3 · Test</p>
+          <h2>Run this version</h2>
+          <p>Their AI is tested on the accepted examples. A high score does not erase a miss that matters. A new name is not a new AI.</p>
+          <p class="ex"><b>On the payment</b>This version still says pay it. That miss stands.</p>
+        </div>
+        <div class="chev">→</div>
+        <div class="box">
+          <p class="n">4 · Decide</p>
+          <h2>They sign, or they don’t</h2>
+          <p>Yes for this job and this version. Or send it back. Or not yet. We do not sign for them.</p>
+          <p class="ex"><b>What stays</b>Who labeled, who accepted, what failed, who signed.</p>
+        </div>
       </div>
-      <div class="bar">They do not rip out what they already bought. We do the work that makes the yes, or the no, something a person can stand behind. They make the call.</div>
+      <div class="bar">Labeling is one step inside the project. The thing they buy is the line from that label to a decision they can defend.</div>
       <div class="foot"><span>Expertluma</span><span>03 / 09</span></div>
     </section>
 
     <section class="slide">
-      <div class="top"><span class="brand">How it works</span><span class="num">04</span></div>
-      <h1>Three questions. Then they sign, or they don’t.</h1>
-      <div class="g3">
-        <div class="card">
-          <p class="k">01</p>
-          <h2>Were the hard cases checked?</h2>
-          <p>People do the work. A second person accepts it. Handing work in is not the same as approving it. The customer trains the model. We do not.</p>
+      <div class="top"><span class="brand">The product</span><span class="num">04</span></div>
+      <h1>This is already built.</h1>
+      <p class="lead">The same payment, inside the product. Each box is work the software already runs. This picture is our example. No customer has brought theirs yet.</p>
+      <div class="pic" style="margin-top:14px">
+        <div class="box" style="background:#141210;color:#f4f1ea;border-color:#141210">
+          <p class="n" style="color:#e4a06a">The case</p>
+          <h2 style="color:#f4f1ea">Payment · $4,200</h2>
+          <p style="color:#d9d2c4">Their AI says: pay it.</p>
+          <p class="ex" style="color:#f4f1ea"><b style="color:#e4a06a">What we store</b>The case, the AI’s answer, and which version said it.</p>
         </div>
-        <div class="card">
-          <p class="k">02</p>
-          <h2>Did this version hold up?</h2>
-          <p>We test this exact version on the cases that must not fail. A high score does not erase a miss that matters. A new name is not a new system.</p>
+        <div class="chev">→</div>
+        <div class="box">
+          <p class="n">The labeling</p>
+          <h2>Right answer: hold it</h2>
+          <p>A person marks that on the case. A second person accepts the mark. The first submission does not count as accepted.</p>
+          <p class="ex"><b>Already in the product</b>The label and the acceptance are two different steps.</p>
         </div>
-        <div class="card">
-          <p class="k">03</p>
-          <h2>Will they sign?</h2>
-          <p>Yes, send it back, or not yet. If the proof is not there, the answer stays not yet. We will not paint that green to raise money.</p>
+        <div class="chev">→</div>
+        <div class="box">
+          <p class="n">The test</p>
+          <h2>This version missed it</h2>
+          <p>The AI is measured on the accepted cases. The average can still look strong. This miss is kept visible.</p>
+          <p class="ex"><b>Already in the product</b>A serious miss can stop a high score. A new name is not a new AI.</p>
+        </div>
+        <div class="chev">→</div>
+        <div class="box" style="border:2px solid #161410">
+          <p class="n">The answer</p>
+          <h2>Not yet</h2>
+          <p>A named person at their company sees yes, send it back, or not yet. On this case the honest answer is not yet.</p>
+          <p class="ex"><b>Already in the product</b>The screen can say not yet. We do not sign for them.</p>
         </div>
       </div>
-      <div class="bar">They make the call. We do not sign for them. The product is willing to say not yet, and that is the point.</div>
-      <div class="foot"><span>Expertluma</span><span>04 / 09</span></div>
+      <div class="bar">Built and running on our own examples. No customer has paid to put their AI through it.</div>
+      <div class="foot"><span>They keep the AI. They train it. We keep the file.</span><span>04 / 09</span></div>
     </section>
 
     <section class="slide">
@@ -217,7 +268,7 @@
           <div class="price"><b>$25–75K</b><span>First project</span></div>
           <p>A deposit to start. The rest when the decision is delivered. When they change the AI, last quarter’s yes does not cover the new one. That is why they come back.</p>
           <div class="not">
-            <span>Not seats</span><span>Not labeling hours</span><span>Not a dashboard</span><span>Not a consulting project</span>
+            <span>Not seats</span><span>Not a labeling shop</span><span>Not a dashboard</span><span>Not a consulting project</span>
           </div>
         </div>
       </div>
