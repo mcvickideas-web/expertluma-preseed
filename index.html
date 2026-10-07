@@ -59,7 +59,7 @@
     .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
     .card { background: var(--card); border: 1px solid var(--line); padding: 14px 14px 12px; }
-    .card .k { margin: 0 0 6px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); font-weight: 750; }
+    .card .k, p.k { margin: 0 0 6px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); font-weight: 750; }
     .card h2 { font-family: Georgia, serif; font-size: 22px; margin: 0 0 8px; font-weight: 560; letter-spacing: -0.02em; }
     .card p, .card li { margin: 0; font-size: 14.5px; line-height: 1.38; color: #2c2923; }
     .card ul { margin: 8px 0 0; padding-left: 16px; }
@@ -111,6 +111,10 @@
     }
     .case b { font-family: Georgia, serif; font-weight: 560; font-size: 18px; }
     .case span { color: #d9d2c4; font-size: 14.5px; line-height: 1.35; }
+    .shot { width: 100%; height: 248px; object-fit: cover; object-position: top left; display: block; border: 1px solid var(--line); background: #fff; }
+    .cap { margin: 8px 0 0; font-size: 13px; line-height: 1.35; color: #3a342c; }
+    ul.tight { margin: 8px 0 0; padding-left: 16px; }
+    ul.tight li { margin: 0 0 3px; font-size: 13.5px; line-height: 1.35; color: #2c2923; }
     .nav { position: fixed; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 7px; z-index: 3; }
     .nav button { width: 7px; height: 7px; border: 0; border-radius: 99px; padding: 0; background: #6a6458; cursor: pointer; }
     .nav button.on { width: 20px; background: #f4f1ea; }
@@ -123,18 +127,18 @@
 
     <section class="slide dark on">
       <div class="top"><span class="brand">Pre-seed</span><span class="num">01</span></div>
-      <p class="wedge">The company, in one sentence</p>
+      <p class="wedge">The production system</p>
       <h1 class="cover">Expertluma</h1>
       <h1 class="q">Companies have the AI. They still cannot let it do the job.</h1>
-      <p class="lead">Expertluma is the paid work between a finished model and a person at the company who will say yes, send it back, or not yet — and the file that decision lives in.</p>
+      <p class="lead">Expertluma is the production system between an AI that exists and an AI a company is willing to authorize for a real job.</p>
       <div class="keeps">
-        <div><b>They keep the AI</b>They built it. They train it. We do not.</div>
-        <div><b>They make the call</b>Yes, send it back, or not yet.</div>
-        <div><b>We keep the file</b>Who checked it, what failed, who signed.</div>
+        <div><b>They keep the AI</b>They built it. They train it. They own it.</div>
+        <div><b>They make the call</b>Yes. Send it back. Not yet.</div>
+        <div><b>We run the production</b>Training material. Validation. Evidence. Certification.</div>
       </div>
       <div class="grow"></div>
       <div class="meta">
-        <div><b>Built</b><span>Come see it</span></div>
+        <div><b>Built</b><span>Product exists</span></div>
         <div><b>0</b><span>Customers</span></div>
         <div><b>$0</b><span>Revenue</span></div>
         <div><b>$2.5M</b><span>18 months</span></div>
@@ -149,21 +153,21 @@
       <div class="g3" style="margin-top:14px">
         <div class="card">
           <p class="k">What they have</p>
-          <h2>Three piles</h2>
+          <h2>Three answers</h2>
           <p>A labeling vendor’s spreadsheet. Last quarter’s accuracy slide. A meeting where someone is asked to say yes.</p>
         </div>
         <div class="card">
           <p class="k">What they lack</p>
-          <h2>One file</h2>
-          <p>This version. The cases that matter. Who labeled them. Who accepted the labels. Who said yes.</p>
+          <h2>One production record</h2>
+          <p>This version. The cases that matter. Who reviewed them. What changed. What evidence supports the decision.</p>
         </div>
         <div class="card">
           <p class="k">Who feels it</p>
           <h2>The executive</h2>
-          <p>The person who would have to explain a wrong payment. They will not put their name on a slideshow.</p>
+          <p>The person who eventually has to answer: why did we allow this AI to do this job?</p>
         </div>
       </div>
-      <div class="bar">So the AI waits. Or it ships, and a failure has no owner. The same stall hits a drafted clinical note, a customer refund, or a public-service decision. The buyer is that executive, not the team that built the model.</div>
+      <div class="bar">The problem is not that the AI has no score. The problem is that the company cannot defend the decision behind the score.</div>
       <div class="foot"><span>Expertluma</span><span>02 / 08</span></div>
     </section>
 
@@ -174,58 +178,61 @@
         <div class="card">
           <p class="k">The first check</p>
           <div class="price"><b>$25–75K</b><span>Deposit, then the rest when the answer is delivered</span></div>
-          <p>They bring the AI they already have. We do not build another one, and we do not train it. We have not sold this yet.</p>
+          <p>They bring the AI they already have. We do not build another one, and we do not train it.</p>
         </div>
         <div class="card">
           <p class="k">What the money buys</p>
           <ul>
-            <li>Examples prepared. People label the right answer. A second person accepts the label before it counts.</li>
-            <li>This version tested. A serious miss can stop a high score. A new name is not a new AI.</li>
-            <li>Their executive’s answer: yes, send it back, or not yet. We do not answer for them.</li>
-            <li>The file: who labeled, who accepted, what failed, who signed.</li>
+            <li><b>Produce.</b> Required training and evaluation material is created, inspected, and accepted.</li>
+            <li><b>Validate.</b> This exact AI version is measured against a defined examination.</li>
+            <li><b>Remediate.</b> Important failures return to production. They do not disappear into an average.</li>
+            <li><b>Certify.</b> Evidence is assembled against the requirements for the intended job.</li>
+            <li><b>Decide.</b> The customer makes the authorization decision. The system preserves what that decision relied on.</li>
           </ul>
         </div>
       </div>
-      <div class="bar">On the payment: the right label is “hold it.” This version still says “pay it.” The answer we will show you is not yet. Labeling is the first step. The sale is the answer.</div>
+      <div class="bar">They bring the AI. We run the production around it. We have not sold this yet.</div>
       <div class="foot"><span>Expertluma</span><span>03 / 08</span></div>
     </section>
 
     <section class="slide">
       <div class="top"><span class="brand">Why it is a company</span><span class="num">04</span></div>
       <h1>A new version voids the old yes.</h1>
-      <p class="lead">The first project proves a company will pay. The company is the next one: they changed the model, so last quarter’s yes does not cover it. The next AI at that company uses the same file.</p>
+      <p class="lead">The first project proves a company will pay. The second version proves why they pay again. Their AI changes. The artifact changes. The evidence changes. The old decision no longer covers the new version. The production starts again.</p>
       <div class="g3" style="margin-top:14px">
         <div class="card">
           <p class="k">If they only need labels</p>
           <h2>Buy labels</h2>
-          <p>A labeling company is the right vendor for a pile of marks. We start when someone has to sign for the job.</p>
+          <p>A labeling company is the right vendor for a pile of marks.</p>
         </div>
         <div class="card">
-          <p class="k">If they need a recommendation</p>
+          <p class="k">If they only need advice</p>
           <h2>Hire consultants</h2>
-          <p>That advice dies in email. The file has to exist after the people leave. That is the software.</p>
+          <p>Advice ends when the people leave.</p>
         </div>
         <div class="card">
-          <p class="k">If the vendor says ready</p>
-          <h2>That is the conflict</h2>
-          <p>The company that sold the model should not grade it. The executive needs a file that is not the vendor’s slide.</p>
+          <p class="k">If they need a defensible AI decision</p>
+          <h2>Run production here</h2>
+          <p>Production, evidence, and the customer’s authorization decision, on this version.</p>
         </div>
       </div>
-      <div class="bar">In 18 months, the result this round owes you is two to four companies that paid, and paid again when the AI changed. That is the next round. This one is how we get there.</div>
+      <div class="bar">The first customer proves demand. The changed AI creates the recurring event.</div>
       <div class="foot"><span>Expertluma</span><span>04 / 08</span></div>
     </section>
 
     <section class="slide">
       <div class="top"><span class="brand">What you can check</span><span class="num">05</span></div>
       <h1>Don’t believe the diagram. Make me show you.</h1>
-      <div class="g2">
-        <div class="card">
-          <p class="k">What the product already does</p>
-          <ul>
+      <div class="g2" style="align-items:start">
+        <div>
+          <img class="shot" src="product-record.png" alt="Expertluma demonstration: authorization is not established, and no evaluation is recorded.">
+          <p class="cap">Our demonstration, not a customer. Authorization is not established. No evaluation is recorded. The training corpus is not released.</p>
+          <p class="k" style="margin-top:10px">What the product already does</p>
+          <ul class="tight">
             <li>A person does the work. A different person accepts it.</li>
-            <li>A serious miss can stop a high score.</li>
-            <li>Renaming the model is not treated as improvement.</li>
-            <li>The answer on screen can be not yet.</li>
+            <li>A serious failure can stop a high score.</li>
+            <li>A renamed model is not a new AI. A new artifact needs new evidence.</li>
+            <li>Validation does not authorize. Certify cannot approve. The answer can be not yet.</li>
           </ul>
         </div>
         <div class="card">
@@ -238,8 +245,8 @@
           </ul>
         </div>
       </div>
-      <div class="bar">In the meeting I will open one case and leave the answer on not yet. If that looks ordinary, there is no company here. If an executive would pay to have that on their AI, there is.</div>
-      <div class="foot"><span>Everything you will see is ours.</span><span>05 / 08</span></div>
+      <div class="bar">Everything on the left is internal proof. Everything on the right is what this round has to change.</div>
+      <div class="foot"><span>Not a mockup. Not customer proof.</span><span>05 / 08</span></div>
     </section>
 
     <section class="slide">
@@ -252,9 +259,9 @@
           <p>I built the product. What is missing is a buyer, not another feature. This money is for the commercial side I do not have.</p>
         </div>
         <div class="card">
-          <p class="k">The seat this round fills</p>
-          <h2>A person in the US</h2>
-          <p>A co-founder, if the right person is there. Otherwise the first hire, in month one. Twenty real conversations. A first paid project. Then a second.</p>
+          <p class="k">The commercial seat</p>
+          <h2>US-based</h2>
+          <p>A commercial co-founder, or the first commercial hire. Someone who can turn the product into twenty serious enterprise conversations, the first paid production program, and then the second.</p>
         </div>
       </div>
       <div class="bar">You are not betting that I can cold-call American enterprises from here. You are betting that the product is real, and that one commercial person can get the first companies onto it.</div>
@@ -264,7 +271,7 @@
     <section class="slide">
       <div class="top"><span class="brand">The round</span><span class="num">07</span></div>
       <h1>$2.5M to get the first companies to pay.</h1>
-      <p class="lead">SAFE. Cap $10–15M, because revenue is zero. Eighteen months. We are raising before customers exist, to find out if they will.</p>
+      <p class="lead">$2.5M pre-seed. SAFE. $10–15M post-money cap. 18 months. We are raising before customers exist because the product is substantially built, and the next risk is commercial.</p>
       <div class="g3" style="margin:12px 0">
         <div class="card">
           <p class="k">Selling it</p>
@@ -285,21 +292,21 @@
         <div class="gate"><b>6–12 months</b><span>The first project finished and paid.</span></div>
         <div class="gate"><b>12–18 months</b><span>Two to four paying companies. They come back.</span></div>
       </div>
-      <div class="foot"><span>People $1.15M · Wrapping $350K · Hosted $250K · Delivery $300K · Conversations $250K · Reserve $200K</span><span>07 / 08</span></div>
+      <div class="foot"><span>People $1.15M · Security, legal, enterprise readiness $350K · Hosted $250K · Customer delivery $300K · US commercial $250K · Reserve $200K</span><span>07 / 08</span></div>
     </section>
 
     <section class="slide dark">
       <div class="top"><span class="brand">The bet</span><span class="num">08</span></div>
-      <h1>A company pays, then pays again.</h1>
-      <p class="lead">That is the whole bet. First for an answer they can defend. Again when the model changes and the old yes no longer covers it. See the product refuse a case before you decide the bet is real.</p>
+      <h1>A company pays. Then its AI changes. Then it pays again.</h1>
+      <p class="lead">One AI. One job. One evidence-backed decision. We have built the production system. Now we need to find out whether companies will pay to use it.</p>
       <div class="g3" style="margin-top:18px">
-        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">See</h2><p style="color:#d9d2c4">One case. The label says hold it. The model says pay it. The screen says not yet.</p></div>
-        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">Then judge</h2><p style="color:#d9d2c4">Would an executive pay $25–75K for that on their own AI, and pay again next version?</p></div>
+        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">See</h2><p style="color:#d9d2c4">Authorization not established. No evaluation recorded. The answer can be not yet.</p></div>
+        <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">Then judge</h2><p style="color:#d9d2c4">Would an executive pay $25–75K for that on their own AI, and pay again when the version changes?</p></div>
         <div class="card" style="background:#1c1a17;border-color:#3a3530"><h2 style="color:#f4f1ea">The round</h2><p style="color:#d9d2c4">$2.5M. Eighteen months. Two to four companies that come back.</p></div>
       </div>
       <div class="grow"></div>
       <p class="contact">Vincent Rotich · Nairobi<br><a href="mailto:mc.vickideas@gmail.com">mc.vickideas@gmail.com</a> · <a href="https://www.expertluma.com">expertluma.com</a> · <a href="https://www.linkedin.com/in/rotich-vincent-4a8910a3">LinkedIn</a></p>
-      <div class="foot"><span>They keep the AI. They decide. We keep the file.</span><span>08 / 08</span></div>
+      <div class="foot"><span>They keep the AI. They decide. We run the production.</span><span>08 / 08</span></div>
     </section>
 
   </div></div>
